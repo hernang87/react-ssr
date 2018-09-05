@@ -3,7 +3,10 @@ import React from 'react';
 class Home extends React.Component {
   render() {
     return (
-      <div>Home component</div>
+      <div>
+        <div>Home simple component</div>
+        <button onClick={() => console.log('clicked!')}>Click me</button>
+      </div>
     );
   }
 }
