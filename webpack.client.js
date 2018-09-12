@@ -5,7 +5,7 @@ const base = require('./webpack.base.js');
 
 const config = {
   entry: './src/client/client.js',
-
+  mode: 'development',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')

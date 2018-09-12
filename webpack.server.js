@@ -6,7 +6,7 @@ const base = require('./webpack.base.js');
 
 const config = {
   target: 'node',
-
+  mode: 'development',
   entry: './src/index.js',
 
   output: {
