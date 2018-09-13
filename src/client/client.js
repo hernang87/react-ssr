@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
+import axios from 'axios';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
@@ -14,7 +15,16 @@ const initialState = window.INITIAL_STATE
   ? window.INITIAL_STATE
   : {};
 
-const store = createStore(reducers, initialState, applyMiddleware(thunk));
+const axiosInstance = axios.create({
+  baseUrl: '/api'
+});
+
+const store = createStore(
+  reducers,
+  initialState,
+  applyMiddleware(thunk.withExtraArgument(axiosInstance))
+);
+
 delete window.INITIAL_STATE;
 
 ReactDOM.hydrate(
