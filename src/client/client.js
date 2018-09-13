@@ -10,8 +10,12 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import Routes from './Routes';
 
-const initialState = {};
+const initialState = window.INITIAL_STATE
+  ? window.INITIAL_STATE
+  : {};
+
 const store = createStore(reducers, initialState, applyMiddleware(thunk));
+delete window.INITIAL_STATE;
 
 ReactDOM.hydrate(
   <Provider store={store}>

@@ -1,5 +1,5 @@
 import Home from './components/Home';
-import UserList from './components/UserList';
+import UserList, { loadData } from './components/UserList';
 
 export default [{
   path: '/',
@@ -7,5 +7,6 @@ export default [{
   exact: true
 }, {
   path: '/users',
-  component: UserList
+  component: UserList,
+  loadData
 }];

@@ -7,10 +7,6 @@ class UserList extends Component {
     this.props.fetchUsers();
   }
 
-  loadData() {
-    
-  }
-
   renderUsers() {
     if (!this.props.users) return null;
 
@@ -35,5 +31,9 @@ class UserList extends Component {
 const mapStateToProps = state => ({
   users: state.users
 });
+
+const loadData = store => store.dispatch(fetchUsers());
+
+export { loadData };
 
 export default connect(mapStateToProps, { fetchUsers })(UserList);
