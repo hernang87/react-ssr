@@ -1,20 +1,26 @@
 import App from './App';
-import { HomePage, UserListPage, NotFoundPage } from './pages';
+import {
+  HomePage,
+  UserListPage,
+  AdminListPage,
+  NotFoundPage
+} from './pages';
 
 export default [{
   ...App,
-  routes: [{
-    ...HomePage,
-    path: '/',
-    exact: true
-  }, {
-    ...UserListPage,
-    path: '/users'
-  }, {
-    ...NotFoundPage,
-  }]
+  routes: [
+    {
+      ...HomePage,
+      path: '/',
+      exact: true
+    }, {
+      ...UserListPage,
+      path: '/users'
+    }, {
+      ...AdminListPage,
+      path: '/admins'
+    }, {
+      ...NotFoundPage,
+    }
+  ]
 }];
-
-
-
-

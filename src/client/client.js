@@ -16,7 +16,7 @@ const initialState = window.INITIAL_STATE
   : {};
 
 const axiosInstance = axios.create({
-  baseUrl: '/api'
+  baseURL: '/api'
 });
 
 const store = createStore(
@@ -24,8 +24,6 @@ const store = createStore(
   initialState,
   applyMiddleware(thunk.withExtraArgument(axiosInstance))
 );
-
-delete window.INITIAL_STATE;
 
 ReactDOM.hydrate(
   <Provider store={store}>
